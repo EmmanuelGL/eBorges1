@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title= title
+    include dependencies
+  body(style="background-color:#C6DEDE;")   
+    include nav
+    if isAuthenticated  
+      include sidebar
+    block content

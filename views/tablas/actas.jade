@@ -1,0 +1,53 @@
+extends ../templates/default
+include ../templates/dependencies
+link(rel='stylesheet', href='/stylesheets/tab.css')
+block content
+    
+  div.ingreso(style='margin-top:50px')
+      div.panel
+        div.box-body(style='min-height: 700px; ')
+          div.jumbotron(style='background: white')
+            div.container
+                div.row
+                    div.col-md-2.col-xs-1
+                        div.well.well-sm
+                            form.form-horizontal(action='/tablas/actas', method='post')
+                                a.text-center Vista
+                                div
+                                    select(name='Busqueda',onChange="this.form.submit()")
+                                        option='Elige una opción'
+                                        option='Departamento'  
+                                        option='Especialidad'
+                                        option='Grado'
+                                        option='Genero'
+                                        option='DeptoGrados'
+                                        option='EspecialidadDeptos' 
+                                   
+                                   
+                div(class='table-responsive' )    
+                    table#local.table.table-striped 
+                        thead(bgcolor="#34495E")
+                            tr
+                               - if(items)  
+                                    -each item in items
+                                        th= item.Field
+                        tbody(bgcolor="#8D9EAF")
+                            -if(items1)
+                                -each item1 in items1
+                                
+                                    tr
+                                        td=item1.total
+                                        td= item1.departamento
+                                       
+                                       
+                                        
+                                                           
+                                   
+                                            
+                           
+                                
+                                
+                                
+                                        
+                        
+                                            

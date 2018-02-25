@@ -1,0 +1,58 @@
+nav.sidebar.sidebar-menu-collapsed
+      a#justify-icon(href='#')
+        span.glyphicon.glyphicon-align-justify
+      ul.completo
+        li.dropdown.completo
+          a.ripple-effect.dropdown-toggle.expandable(href='#', data-toggle='dropdown')
+            span.fa.fa-pie-chart.collapsed-element 
+            span.expanded-element Estadísticas   
+          ul.dropdown-menu
+            li
+              a(href='/estadisticas/actas')
+                i.fa.fa-circle-o
+                | Actas
+            li
+              a(href='/estadisticas/tesis')
+                i.fa.fa-circle-o
+                | Tesis
+        
+        li.dropdown.completo
+          a.ripple-effect.dropdown-toggle.expandable(href='#', data-toggle='dropdown')
+            span.fa.fa-search.collapsed-element
+            span.expanded-element Consultas   
+          ul.dropdown-menu
+            li
+              a(href='/consultas/actas')
+                i.fa.fa-circle-o
+                | Actas
+            li
+              a(href='/consultas/tesis')
+                i.fa.fa-circle-o
+                | Tesis
+        li.dropdown.completo
+          a.ripple-effect.dropdown-toggle.expandable(href='#', data-toggle='dropdown')
+            span.fa.fa-file-excel-o.collapsed-element
+            span.expanded-element Exportar   
+          ul.dropdown-menu
+            li
+              a(href='/exportar/actas')
+                i.fa.fa-circle-o
+                | Actas
+            li
+              a(href='/exportar/tesis')
+                i.fa.fa-circle-o
+                | Tesis
+        li.dropdown.completo
+          a.ripple-effect.dropdown-toggle.expandable(href='#', data-toggle='dropdown')
+            span.fa.fa-table.collapsed-element
+            span.expanded-element Cuadro de Datos  
+          ul.dropdown-menu
+            li
+              a(href='/tablas/actas')
+                i.fa.fa-circle-o
+                | Actas
+            li
+              a(href='/tablas/tesis')
+                i.fa.fa-circle-o
+                | Tesis
+     
