@@ -1,9 +1,57 @@
 extends ../templates/default
+include ../templates/dependencies
+
 block content
-    div.ingreso(style='margin-top:50px')
+  script(type='text/javascript', src='/javascripts/excel.js') 
+  div.ingreso(style='margin-top:50px')
       div.panel
         div.box-body(style='min-height: 700px; ')
           div.jumbotron(style='background: white')
             div.container
                 div.row
-                    a='exportar tesis'
+                    div.col-md-3
+                        div.well.well-sm
+                            form.form-horizontal(action='/exportar/tesis', method='post')
+                                a.text-center Vista
+                                div
+                                    select.form-control(name='Busqueda',onChange="this.form.submit()")
+                                        option='Elige una opción'
+                                        option='Departamento'  
+                                        option='Especialidad'
+                                        option='Grado'
+                                        option='Genero'
+                                        option='DeptoGrados'
+                                        option='EspecialidadDeptos'
+                                         
+                                   
+                -if(!items)
+                    div.alert.alert-info
+                        strong(style='text-align:center;')  Atención!    :
+                            a.text-select Selecciona una Vista....
+                h1.text-title(style='text-align:center;') Exportar #{title}                   
+                div(class='table-responsive' )    
+                    table#example.table.table-striped.table-bordered 
+                        thead(bgcolor="#34495E")
+                            tr
+                               - if(items)  
+                                    -each item in items
+                                        th(style="text-align: center")= item.Field
+                        tbody(bgcolor="#8D9EAF")
+                            -if(items1)
+                                -for item1 in items1
+                                    tr
+                                        -for val,key in item1
+                                            td.text-center #{val}
+                                       
+                                       
+                                        
+                                                           
+                                   
+                                            
+                           
+                                
+                                
+                                
+                                        
+                        
+                                            

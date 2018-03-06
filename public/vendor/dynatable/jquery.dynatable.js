@@ -49,7 +49,7 @@
       sort: true,
       pushState: true,
       search: true,
-      recordCount: true,
+      recordCount: false,
       perPageSelect: true
     },
     table: {

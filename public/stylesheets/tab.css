@@ -6,19 +6,21 @@ body {
   }
   
   table {
-    border: 2px solid #42b983;
+    border: 2px solid #3466d1;
     border-radius: 3px;
     background-color: #fff;
   }
   
   th {
-    background-color: #42b983;
-    color: rgba(255,255,255,0.66);
+    background-color: #3466d1;
+    color: #fff;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    align-self: auto;
+    text-align: center"
   }
   
   td {

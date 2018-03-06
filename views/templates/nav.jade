@@ -6,7 +6,7 @@ nav.navbar-fixed-top.nav-color(white="30px")
         span(class="icon-bar")
         span(class="icon-bar")
         span(class="icon-bar")
-      a.navbar-brand.text(href="/")= 'eBorges'
+      a.navbar-brand.text.text-title(href="/")= 'eBorges'
     
     
     div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")     
@@ -22,6 +22,6 @@ nav.navbar-fixed-top.nav-color(white="30px")
               span(class="caret")
             ul(class="dropdown-menu")
               li
-                a.text(href="/users/panel")= 'Perfil'
-              li
-                a.text(href="http://localhost:3000/auth/logout")= 'Cerrar Sesion'
+                a.text.fa.fa-sign-out(href="http://localhost:3000/auth/logout")= 'Cerrar Sesion'
+    
+    

@@ -32,9 +32,9 @@ router.post('/consultas/tesis', AuthMiddleware.isLogged, controllers.Queries.pos
 
 //rutas para las exportaciones de tesis y actas 
 router.get('/exportar/actas', AuthMiddleware.isLogged, controllers.Exports.getActas);
-router.post('/exportar/actas', AuthMiddleware.isLogged, controllers.Exports.getActas);
+router.post('/exportar/actas', AuthMiddleware.isLogged, controllers.Exports.postActas);
 router.get('/exportar/tesis', AuthMiddleware.isLogged, controllers.Exports.getTesis);
-router.post('/exportar/tesis', AuthMiddleware.isLogged, controllers.Exports.getTesis);
+router.post('/exportar/tesis', AuthMiddleware.isLogged, controllers.Exports.postTesis);
 //rutas para las tablas 
 router.get('/tablas/actas', AuthMiddleware.isLogged, controllers.DataTable.getActas);
 router.post('/tablas/actas', AuthMiddleware.isLogged, controllers.DataTable.postActas);
