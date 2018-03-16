@@ -1,8 +1,12 @@
 extends ../templates/default
-script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+
 
 block content
-   div.ingreso(style='margin-top:50px')
+   script(type='text/javascript', src='/javascripts/graficas.js')
+   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+   script(type='text/javascript', src='/javascripts/muestra.js')        
+
+   div.ingreso(style='margin-top:50px', ng-app='myApp')
       div.panel
         div.box-body(style='min-height: 700px; ')
           div.jumbotron(style='background: white')
@@ -29,42 +33,40 @@ block content
                                       span.input-group-addon
                                         i.glyphicon.glyphicon-calendar
                                       input#msg.form-control(type="month" name="mes" min="1960-01" placeholder='Introdusca un año')
-                div(ng-app="")
-                    div.nav-tabs-custom
+                
+                div.nav-tabs-custom(ng-controller='myCtrl')
                     ul.nav.nav-tabs.pull-right
-                        li(ng-show='!graph.selected.isSpecial')
-                        a(href='javascript:;', data-target='#donut', data-toggle='tab')
-                            i.fa.fa-pie-chart(aria-hidden='true')
-                            |  DONA
+                        li
+                            a.dona( data-target='#donut', data-toggle='tab')
+                                i.fa.fa-pie-chart
+                                |  DONA
                         li.active
-                        a#tab-special(href='javascript:;', data-target='#bar', data-toggle='tab')
-                            i.fa.fa-bar-chart(aria-hidden='true')
-                            |  BARRAS
+                            a.barra(href='javascript:;', data-target='#bar', data-toggle='tab')
+                                i.fa.fa-bar-chart
+                                |  BARRAS
 
-                    div(class='col-md-10 col-md-offset-4')  
+                
+                -if(items1)
                     h1 Gráfica #{title}
+                        
+                        
+                    div#graficaA.graficaA
                     
-                    script(src='../javascripts/graficas.js')
-                    #container
-                        //desde Aaqui no se aprecia
-                        div(class='col-md-10 col-md-offset-3') 
-                        //la identacion no se muestra la tabla
-                        table#datatable
-                            thead
-                                tr
-                                    th #{Title}
-                                    th Total
-                                    //-if(items)
-                                        -each item in items
-                                                th= item.Field    
-                            tbody
-                                -if(items1)
-                                        -for item1 in items1
-                                            tr
-                                                -for val,key in item1
-                                                    td.text-center #{val}
+                    div#graficaB.graficaB(style='display:none;') 
+                    
+                    table#datatable(style="display:none")
+                        thead
+                            tr
+                                th #{Title}
+                                th Total  
+                        tbody
+                            -if(items1)
+                                    -for item1 in items1
+                                        tr
+                                            -for val,key in item1
+                                                td.text-center #{val}
 
 
-                    
+                
 
             

@@ -11,12 +11,12 @@ router.get('/auth/signup', controllers.UserController.getSignUp);
 router.post('/auth/signup', controllers.UserController.postSignUp);
 router.get('/auth/signin', controllers.UserController.getSignIn);
 router.post('/auth/signin',  passport.authenticate('local', {
-	successRedirect : '/users/panel',
+	successRedirect : '/',
 	failureRedirect : '/auth/signin',
 	failureFlash : true 
 }));
 router.get('/auth/logout', controllers.UserController.logout);
-router.get('/users/panel', AuthMiddleware.isLogged ,controllers.UserController.getUserPanel);
+//router.get('/users/panel', AuthMiddleware.isLogged ,controllers.UserController.getUserPanel);
 
 //rutas para laas graficas de tesis y actas 
 router.get('/estadisticas/actas',AuthMiddleware.isLogged, controllers.Graphs.getActas);

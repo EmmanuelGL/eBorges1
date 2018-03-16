@@ -1,7 +1,7 @@
 
 $(document).ready( function() {
   $(function () {
-      Highcharts.chart('container', {
+      Highcharts.chart('graficaA', {
           data: {
               table: 'datatable'
           },
@@ -11,26 +11,133 @@ $(document).ready( function() {
           title: {
               text: this.title
           },
+          xAxis: {
+            type: 'category',
+            title: {
+                text: this.title
+            }
+        },
           yAxis: {
-              allowDecimals: false,
+             // allowDecimals: false,
               title: {
                   text: 'Total'
               }
           },
           tooltip: {
-              formatter: function () {
-                  return '<b>' + this.series.name + '</b><br/>' +
-                      this.point.y + ' ' + this.point.name.toLowerCase();
-              }
-          }
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f} ' + this.title + '</b><br/>'
+          },
+          legend: {
+            enabled: false
+        },
+           plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}'
+                    }
+                }
+            },
       });
   });
+
+////////////////////////////////////////////////////////////////////////////////
+  $(document).ready(function(){
+    Highcharts.chart('graficaB', {
+           
+        data: {
+            table: 'datatable'
+        },
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: this.title
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        legend: {
+            align: 'left',
+            layout: 'vertical',
+            verticalAlign: 'middle',
+            x: 40,
+            y: 0
+        }
+    });
+  })
+
+
+
+
+
+
+
+
+
 });
 
+
+
+
+
+
+
+
+
+
 /*
-$(document).ready( function() {
-    $(function () {
+//$(document).ready( function() {
+    angular.module('myApp', [])
+  .controller('myCtrl', ['$scope', function($scope) {
+    $scope.count = 0;
+    $scope.barras = function() {
         Highcharts.chart('container', {
+            data: {
+                table: 'datatable'
+            },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: this.title
+            },
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: 'Total'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                        this.point.y + ' ' + this.point.name.toLowerCase();
+                }
+            }
+        });
+      
+    };
+
+    $scope.pie = function() {
+        Highcharts.chart('container', {
+           
+            data: {
+                table: 'datatable'
+            },
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
@@ -38,7 +145,7 @@ $(document).ready( function() {
                 type: 'pie'
             },
             title: {
-                text: 'Browser market shares January, 2015 to May, 2015'
+                text: this.title
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -53,36 +160,110 @@ $(document).ready( function() {
                     showInLegend: true
                 }
             },
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [
-                    { "name": 'Doctorado', "y": 34 },
-                    
-                    {
-                    "name": 'Microsoft Internet Explorer',
-                    "y": 56.33
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    sliced: true,
-                    selected: true
-                }, {
-                    name: 'Firefox',
-                    y: 10.38
-                }, {
-                    name: 'Safari',
-                    y: 4.77
-                }, {
-                    name: 'Opera',
-                    y: 0.91
-                }, {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2
-                }]
-            }]
+            legend: {
+                align: 'left',
+                layout: 'vertical',
+                verticalAlign: 'middle',
+                x: 40,
+                y: 0
+            }
         });
-    });
-  });*/
+      
+    };
+
+
+
+
+
+
+
+
+
+  }]);
+*/
+
+
+
+
+
+
+
+    
+   /* function barras() {
+        Highcharts.chart('container', {
+            data: {
+                table: 'datatable'
+            },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: this.title
+            },
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: 'Total'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                        this.point.y + ' ' + this.point.name.toLowerCase();
+                }
+            }
+        });
+    }
+    
+    */
+    
+    
+    
+    
+    
+    
+    
+    
+   /* function pie() {
+        Highcharts.chart('container', {
+           
+            data: {
+                table: 'datatable'
+            },
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: this.title
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            legend: {
+                align: 'left',
+                layout: 'vertical',
+                verticalAlign: 'middle',
+                x: 40,
+                y: 0
+            }
+        });
+
+    }*/
+
+ // });
 
   
+ 

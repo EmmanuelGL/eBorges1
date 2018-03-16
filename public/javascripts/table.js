@@ -14,9 +14,7 @@
 $(document).ready(function() {
 	$('#local').DataTable( {
 			dom: 'Bfrtip',
-			buttons: [
-					
-			],
+			
 			"oTableTools": {
 					"sSwfPath": "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
 				},

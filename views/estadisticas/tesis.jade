@@ -1,5 +1,8 @@
 extends ../templates/default
 block content
+   script(type='text/javascript', src='/javascripts/graficas.js')
+   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+   script(type='text/javascript', src='/javascripts/muestra.js') 
    div.ingreso(style='margin-top:50px')
       div.panel
         div.box-body(style='min-height: 700px; ')
@@ -29,37 +32,36 @@ block content
                                       input#msg.form-control(type="month" name="mes" min="1960-01" placeholder='Introdusca un año')
                 div.nav-tabs-custom
                   ul.nav.nav-tabs.pull-right
-                    li(ng-show='!graph.selected.isSpecial')
-                      a(href='javascript:;', data-target='#donut', data-toggle='tab')
+                    li
+                      a.dona( data-target='#donut', data-toggle='tab')
                         i.fa.fa-pie-chart(aria-hidden='true')
                         |  DONA
                     li.active
-                      a#tab-special(href='javascript:;', data-target='#bar', data-toggle='tab')
+                      a.barra( data-target='#bar', data-toggle='tab')
                         i.fa.fa-bar-chart(aria-hidden='true')
                         |  BARRAS
 
 
                         
-                div(class='col-md-10 col-md-offset-4')  
-                h1 Gráfica #{title}
-                
-                script(src='../javascripts/graficas.js')
-                #container
-                    //desde Aaqui no se aprecia
-                    div(class='col-md-10 col-md-offset-3') 
-                    //la identacion no se muestra la tabla
-                    table#datatable
-                        thead
-                            tr
-                                th #{Title}
-                                th Total
-                                //-if(items)
-                                    -each item in items
-                                            th= item.Field    
-                        tbody
-                            -if(items1)
-                                    -for item1 in items1
-                                        tr
-                                            -for val,key in item1
-                                                td.text-center #{val}
+                -if(items1)
+                    h1 Gráfica #{title}
+                    
+                    
+                    div#graficaA.graficaA
+                    
+                    div#graficaB.graficaB(style='display:none;')
+                        
+                        div(class='col-md-10 col-md-offset-3') 
+                        
+                        table#datatable(style="display:none")
+                            thead
+                                tr
+                                    th #{Title}
+                                    th Total   
+                            tbody
+                                -if(items1)
+                                        -for item1 in items1
+                                            tr
+                                                -for val,key in item1
+                                                    td.text-center #{val}
                     

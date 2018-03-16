@@ -1,44 +1,12 @@
 extends ../templates/default
 include ../templates/dependencies
-
+link(rel='stylesheet', href='/stylesheets/tab.css')
 
 block content
   script(src='http://c.fzilla.com/1286136086-jquery.js')
   script(src='http://c.fzilla.com/1291523190-jpaginate.js')
-  script.
-      $(document).ready(function(){
-      $("#content").jPaginate();
-      });
-  style(type='text/css').
-      .pagination{
-      list-style:none;
-      margin:0 px;
-      padding: 0 px;
-      align-content: center;
-      }
-      .pagination li{
-      float: left;
-      margin: 3 px;
-      }
-      .pagination li a{
-      display:block;
-      padding: 3 px 5 px;
-      color: #fff;
-      background-color: #44b0dd;
-      text-decoration:none;
+  link(rel='stylesheet', href='/stylesheets/query.css')
       
-      }
-      .pagination li a.activate{
-      border: 1 px solid #000;
-      color: #000;
-      background-color: #fff;
-      
-      }
-      .pagination li a.inactive{
-      background-color: #eee;
-      color: #777;
-      border: 1 px solid #ccc;
-      }
   div.ingreso(style='margin-top:50px')
       div.panel
         div.box-body(style='min-height: 700px; ')
@@ -64,45 +32,59 @@ block content
                             button.btn.btn-primary CONSULTA AVANZADA   
                 
             
-            
+                
                 -if(items)
-                    ul#content.row-fluid(style="list-style-type:none")
-                        -for item in items
-                            li.span4(data-color='gray')
-                                div.thumbnail
-                                    div.panel-heading
-                                        h3
-                                         a #{item.titulo}
-                                    div.caption  
-                                        p       
-                                            b Alumno:
-                                            td #{item.ALUMNO} 
-                                        p
-                                            b Folio:
-                                            td #{item.FOLIO} 
-                                        p
-                                            b Lugar:
-                                            td #{item.LUGAR}
-                                        p
-                                            b Fecha de Toma de Grado:
-                                            td #{item["FECHA DE TOMA DE GRADO"]}
-                                        p
-                                            b Directores:
-                                            td   #{item.DIRECTOR} 
-                                            td   #{item.DIRECTOR1}
-                                            td   #{item.DIRECTOR2} 
-                                            td   #{item.DIRECTOR3}
-                                            td   #{item.DIRECTOR4}                                          
-                                        p
-                                            b Sinodales:
-                                            td  #{item.SINODAL}
-                                            td  #{item.SINODAL1}
-                                            td  #{item.SINODAL2}
-                                            td  #{item.SINODAL3}
-                                            td  #{item.SINODAL4}
+                    -for item in items
+                        div.thumbnail
+                            table#local.table.table-striped.table-bordered        
                             
+                                thead
+                                    td(colspan="2") 
+                                        a #{item.titulo}
+                                tbody    
+                                    tr
+                                        td 
+                                            b Alumno:
+                                        td
+                                            ul #{item.ALUMNO} 
+                                    tr
+                                        td 
+                                            b Folio:
+                                        td 
+                                            ul #{item.FOLIO} 
+                                    tr
+                                        td
+                                            b Lugar:
+                                        td 
+                                            ul #{item.LUGAR}
+                                    tr
+                                        td
+                                            b Fecha de Toma de Grado:
+                                        td 
+                                            ul #{item["FECHA DE TOMA DE GRADO"]}
+                                    tr
+                                        td 
+                                            b Directores:
+                                        td  
+                                            ul(style="list-style-type:none")
+                                                li #{item.DIRECTOR} 
+                                                li #{item.DIRECTOR1}
+                                                li #{item.DIRECTOR2} 
+                                                li #{item.DIRECTOR3}
+                                                li #{item.DIRECTOR4}                                          
+                                    tr
+                                        td
+                                            b Sinodales:
+                                        td 
+                                            ul(style='list-style-type:none')
+                                                li #{item.SINODAL}
+                                                li #{item.SINODAL1}
+                                                li #{item.SINODAL2}
+                                                li #{item.SINODAL3}
+                                                li #{item.SINODAL4}
+                        
+                
                     
-                                   
                
                                        
                                        

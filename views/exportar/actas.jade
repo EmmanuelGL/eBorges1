@@ -27,21 +27,21 @@ block content
                             div.alert.alert-info
                                 strong(style='text-align:center;')  Atención!    :
                                     a.text-select Selecciona una Vista....
-                            
-                        h1.text-title(style='text-align:center;') Exportar #{title}                   
-                        div(class='table-responsive' ) 
-                            table#example.display(cellspacing='0', width='100%')
-                                thead
-                                    tr
-                                        - if(items)
-                                            -each item in items
-                                                th(style="text-align: center")= item.Field
-                                tbody
-                                    -if(items1)
-                                        -for item1 in items1
-                                            tr
-                                                -for val,key in item1
-                                                    td.text-center #{val}
+                        -if(items)                            
+                            h1.text-title(style='text-align:center;') Exportar #{title}                   
+                            div(class='table-responsive' ) 
+                                table#example.display(cellspacing='0', width='100%')
+                                    thead
+                                        tr
+                                            - if(items)
+                                                -each item in items
+                                                    th.text-center(style="text-align: center")= item.Field
+                                    tbody
+                                        -if(items1)
+                                            -for item1 in items1
+                                                tr
+                                                    -for val,key in item1
+                                                        td.text-center #{val}
                                         
                     
                 

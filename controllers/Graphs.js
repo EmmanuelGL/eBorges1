@@ -1,59 +1,20 @@
 var mysql = require('mysql'),
-	graficas = [],
-	title =[],
-	encabezados = [];
+	graficasA = [], graficasT = [],
+	titleA =[], titleT =[];
 
 function enviarrowsActas(req,res){
-	//console.log(JSON.stringify(graficas[0])+'----------------------------------------');
-	//------------------------------------
-	//var muestra = JSON.parse(JSON.stringify(graficas[0]));
-	var arreglo = [{
-		nombre: 'Luis',
-		apellido: 'Gonzales'
-	  }, {
-		nombre: 'Maria',
-		apellido: 'Perez'
-	  }, {
-		nombre: 'Ignacia',
-		apellido: 'Valdebenito'
-	  }];
-	  
-	  // para cada elemento... 
-	  	//if(graficas.length!=0){
-			var arreglado = arreglo.map( item => { 
-				// lo guardas temporalmente
-				var temporal = item.nombre;
-				var temporal1 = item.apellido
-				// eliminas el valor que ya no quieres
-				delete item.nombre;
-				delete item.apellido
-				// creas el valor nuevo.
-				item.name = temporal1;
-				item.y = temporal;
-				
-				return item; 
-			});
-			
-			//console.log(arreglado);
-		//}
-	//------------------------------------
-	//var cuerpoTable = JSON.stringify(graficas[0])
-		
+	//console.log(graficasA);
 	res.render('estadisticas/actas', {
-		//items: encabezados[0],
-		
-		title: title[0],
-		//Actas : "Actas",
-		//items1: arreglado
-		items1:graficas[0],
+		title: titleA[0],
+		items1:graficasA[0],
 		isAuthenticated: req.isAuthenticated(),
 		user : req.user
 	   });
 }
 function enviarrowsTesis(req,res){
 	res.render('estadisticas/tesis', {
-		items1:graficas[0],
-		title : title[0],
+		items1:graficasT[0],
+		title : titleT[0],
 		isAuthenticated: req.isAuthenticated(),
 		user : req.user
 	   });
@@ -82,7 +43,7 @@ module.exports = {
 			grafica='v_egeneroa';
 		}
 		if(seleccion=='DeptoGrados'){
-			head = "grado,departamento,total";
+			head = "departamento,grado,total";
 			grafica='v_deptogradoa';
 		}
 		if(seleccion=='EspecialidadDeptos'){
@@ -94,17 +55,22 @@ module.exports = {
 			var db = mysql.createConnection(config);
 			db.connect();
 			db.query(`select `+head+` from `+grafica,function(err,rows1,fields){
-				//db.query(`DESCRIBE `+grafica,function(err,rows,fields){
+
+				 /*var pruenba = [{"data": [{"name": "CIENCIAS COMPUTACIÓN","y": 1}],"name": "Laboratorio de Tecnologías de la Información"},
+				 {"data": [{"name": "CIENCIAS ESPECILIDAD DE MATERIALES","y": 1}],"name": "Materiales"},
+				 {"data": [{"name": "CIENCIAS ROBÓTICA Y MANUFACTURA AVANZADA","y": 1}],"name": "ROBÓTICA Y MANUFACTURA AVANZADA"},
+				 {"data": [{"name": "CIENCIAS BIOLOGIA CELULAR","y": 1}],"name": "Biología Celular"},
+				 {"data": [{"name": "CIENCIAS FISIOLOGÍA. BIOFÍSICA Y NEUROCIENCIAS","y": 1}],"name": "Biología Celular"},
+				 {"data": [{"name": "CIENCIAS FISIOLOGÍA. BIOFÍSICA Y NEUROCIENCIAS","y": 10}],"name": "Fisiología"}];*/
 					console.log(rows1);
-					title.shift();					
-					//encabezados.shift();
-					graficas.shift();
-					title.push(seleccion)
-				//	encabezados.push(rows)
-					graficas.push(rows1)
+					titleA.shift();					
+					
+					graficasA.shift();
+					titleA.push(seleccion)
+				
+					graficasA.push(rows1)
 					enviarrowsActas(req,res);
-								
-				//});				
+											
 			});
 	},
 	getTesis : function(req, res, next){
@@ -143,18 +109,12 @@ module.exports = {
 			var db = mysql.createConnection(config);
 			db.connect();
 			db.query(`select `+head+` from `+grafica,function(err,rows1,fields){
-				//db.query(`DESCRIBE `+grafica,function(err,rows,fields){
 					console.log(rows1);
-					title.shift();					
-					//encabezados.shift();
-					graficas.shift();
-					title.push(seleccion)
-				//	encabezados.push(rows)
-					graficas.push(rows1)
-					enviarrowsTesis(req,res);
-								
-				//});				
+					titleT.shift();					
+					graficasT.shift();
+					titleT.push(seleccion)
+					graficasT.push(rows1)
+					enviarrowsTesis(req,res);				
 			});
-		//enviarrowsTesis(req,res);
 	}
 };

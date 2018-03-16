@@ -71,12 +71,12 @@ module.exports = {
 		res.redirect('/auth/signin');
 	},
 
-	getUserPanel : function(req, res, next){
+	/*getUserPanel : function(req, res, next){
 		res.render('estadisticas/actas', {
 			isAuthenticated : req.isAuthenticated(),
 			user : req.user
 		});
-	}
+	}*/
 
 
 
