@@ -30,7 +30,7 @@ module.exports = {
 		var db = mysql.createConnection(config);
 				db.connect();
 
-					if(seleccion!='DeptoGrados' && seleccion!='EspecialidadDeptos'){
+					//if(seleccion!='DeptoGrados' && seleccion!='EspecialidadDeptos'){
 						if(seleccion=='Departamento'){
 							head = "departamento,total";
 							grafica='v_edepartamentoa';
@@ -47,6 +47,14 @@ module.exports = {
 							head = "genero,total";
 							grafica='v_egeneroa';
 						}
+						if(seleccion=='DeptoGrados'){
+							head = "departamento,total";
+							grafica='v_deptogradoa';
+						}
+						if(seleccion=='EspecialidadDeptos'){
+							head = "especialidad,departamento,total";
+							grafica='v_especialidaddeptoa';
+						}
 						db.query(`select `+head+` from `+grafica,function(err,rows1,fields){
 								console.log(rows1);
 								titleA.shift();					
@@ -58,7 +66,7 @@ module.exports = {
 								enviarrowsActas(req,res);
 														
 						});
-				}else{
+				/*}else{
 					if(seleccion=='DeptoGrados'){
 						head = "departamento,total";
 						grado='Doctorado';
@@ -71,15 +79,15 @@ module.exports = {
 							titleA.push(seleccion)
 						
 							graficasA.push(rows1)
-							enviarrowsActas(req,res);*/
+							enviarrowsActas(req,res);
 													
-						});
-					}
+						});*/
+					/*}
 					if(seleccion=='EspecialidadDeptos'){
 						head = "especialidad,departamento,total";
 						grafica='v_especialidaddeptoa';
 					}
-				}
+				}*/
 				
 						
 
