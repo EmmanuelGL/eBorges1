@@ -5,6 +5,7 @@ $(document).ready(function(){
     });
     $(".barra").click(function(){
         $(".graficaA").show();
+        $(".graficaA1").show();
         $(".graficaB").hide();
     });
 });
