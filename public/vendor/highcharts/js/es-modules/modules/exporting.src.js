@@ -46,7 +46,7 @@ extend(defaultOptions.lang, {
 	 * @since 3.0.1
 	 * @apioption lang.printChart
 	 */
-	printChart: 'Print chart',
+	printChart: 'Imprimir',
 	/**
 	 * Exporting module only. The text for the PNG download menu item.
 	 * 
@@ -55,7 +55,7 @@ extend(defaultOptions.lang, {
 	 * @since 2.0
 	 * @apioption lang.downloadPNG
 	 */
-	downloadPNG: 'Download PNG image',
+	downloadPNG: 'Descargar imagen PNG',
 	/**
 	 * Exporting module only. The text for the JPEG download menu item.
 	 * 
@@ -64,7 +64,7 @@ extend(defaultOptions.lang, {
 	 * @since 2.0
 	 * @apioption lang.downloadJPEG
 	 */
-	downloadJPEG: 'Download JPEG image',
+	downloadJPEG: 'Descargar imagen JPEG ',
 	/**
 	 * Exporting module only. The text for the PDF download menu item.
 	 * 
@@ -73,7 +73,7 @@ extend(defaultOptions.lang, {
 	 * @since 2.0
 	 * @apioption lang.downloadPDF
 	 */
-	downloadPDF: 'Download PDF document',
+	downloadPDF: 'Descargar documento PDF',
 	/**
 	 * Exporting module only. The text for the SVG download menu item.
 	 * 
@@ -82,7 +82,7 @@ extend(defaultOptions.lang, {
 	 * @since 2.0
 	 * @apioption lang.downloadSVG
 	 */
-	downloadSVG: 'Download SVG vector image',
+	downloadSVG: 'Descargar imagen vector SVG ',
 	/**
 	 * Exporting module menu. The tooltip title for the context menu holding
 	 * print and export menu items.

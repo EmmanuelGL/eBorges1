@@ -56,7 +56,7 @@ $(document).ready( function() {
 });*/
 
 
-$(document).ready(function() {
+/*$(document).ready(function() {
   $('#local1').DataTable( {
       dom: 'Bfrtip',
       buttons: [
@@ -82,7 +82,10 @@ $(document).ready(function() {
       },
   } );
 } );
-
+*/
+$(document).ready(function(){
+  $("#local").jPaginate();
+});
 
 
 

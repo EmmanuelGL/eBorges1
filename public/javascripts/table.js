@@ -13,12 +13,13 @@
 });*/
 $(document).ready(function() {
 	$('#local').DataTable( {
-			dom: 'Bfrtip',
+			//dom: 'Bfrtip',
 			
-			"oTableTools": {
+			/*"oTableTools": {
 					"sSwfPath": "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
-				},
+				},*/
 				"language": {
+					"Show  ": "Mostrar:",
 					"search": "Buscar:",
 					"zeroRecords": "No se encontraron datos",
 					"infoEmpty": "No hay datos para mostrar",

@@ -4,9 +4,14 @@ link(rel='stylesheet', href='/stylesheets/tab.css')
 
 block content
   script(src='http://c.fzilla.com/1286136086-jquery.js')
-  script(src='http://c.fzilla.com/1291523190-jpaginate.js')
+  //- script(src='http://c.fzilla.com/1291523190-jpaginate.js')
   link(rel='stylesheet', href='/stylesheets/query.css')
-      
+  script(src='/vendor/pagination/jpaginate.js')
+  link(rel='stylesheet', href='/stylesheets/query.css')    
+  script.
+      $(document).ready(function(){
+      $("#content").jPaginate();
+      });  
   div.ingreso(style='margin-top:50px')
       div.panel
         div.box-body(style='min-height: 700px; ')
@@ -15,81 +20,131 @@ block content
                 div.row
                     div.col-md-3
                         div.well.well-sm
-                            form.form-horizontal(action='/tablas/tesis', method='post')
-                                a.text-cente Ordenar
+                            form.form-horizontal(action='/estadisticas/actas', method='post')
+                                a.text-center Estadística
                                 div
-                                    select.form-control(name='Busqueda')
+                                    select.form-control()
                                         option='Elige una opción'
-                                        option='Alunmo'  
-                                        option='Titulo'
-                                        option='Folio'
-                                        option='Lugar'
-                                        option='Fecha de toma de Grado'
-                                        option='Directores'
-                                        option='Sinodales'
-                    div.col-md-7(style='padding-top: 15px;')
+                                        option='Departamento'  
+                                        option='Especialidad'
+                                        option='Grado'
+                                        option='Genero'
+                                        option='DeptoGrados'
+                                        option='EspecialidadDeptos'
+                                         
+                    div.container.col-md-7(style='padding-top: 15px;')
                         div.pull-right
-                            button.btn.btn-primary CONSULTA AVANZADA   
-                
-            
-                
-                -if(items)
-                    -for item in items
-                        div.thumbnail
-                            table#local.table.table-striped.table-bordered        
-                            
-                                thead
-                                    td(colspan="2") 
-                                        a #{item.titulo}
-                                tbody    
-                                    tr
-                                        td 
-                                            b Alumno:
-                                        td
-                                            ul #{item.ALUMNO} 
-                                    tr
-                                        td 
-                                            b Folio:
-                                        td 
-                                            ul #{item.FOLIO} 
-                                    tr
-                                        td
-                                            b Lugar:
-                                        td 
-                                            ul #{item.LUGAR}
-                                    tr
-                                        td
-                                            b Fecha de Toma de Grado:
-                                        td 
-                                            ul #{item["FECHA DE TOMA DE GRADO"]}
-                                    tr
-                                        td 
-                                            b Directores:
-                                        td  
-                                            ul(style="list-style-type:none")
-                                                li #{item.DIRECTOR} 
-                                                li #{item.DIRECTOR1}
-                                                li #{item.DIRECTOR2} 
-                                                li #{item.DIRECTOR3}
-                                                li #{item.DIRECTOR4}                                          
-                                    tr
-                                        td
-                                            b Sinodales:
-                                        td 
-                                            ul(style='list-style-type:none')
-                                                li #{item.SINODAL}
-                                                li #{item.SINODAL1}
-                                                li #{item.SINODAL2}
-                                                li #{item.SINODAL3}
-                                                li #{item.SINODAL4}
+                            button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal') CONSULTA AVANZADA
+                        // Modal
+                        div#myModal.modal.fade(role='dialog')
+                            form(action='/consultas/actas' method='post' autocomplete='off')
+                                div.modal-dialog
+                                    div.modal-content
+                                        div.modal-header
+                                            button.close(type='button', data-dismiss='modal') ×
+                                            h4.modal-title Búsqueda avanzada de actas
+                                        div.modal-body
+                                            
+                                                div.row
+                                                    div.col-xs-6
+                                                        input(type='text' name='folio' placeholder='Folio' class='form-control')
+                                                    div.col-xs-6
+                                                        input(type='text' name='lugar' placeholder='Lugar' class='form-control')
+                                                div.row
+                                                    div.col-xs-6
+                                                        h4 Desde
+                                                        div.input-group
+                                                            span.input-group-addon
+                                                                i.glyphicon.glyphicon-calendar
+                                                            input.form-control(type="Date" name="desde" min="1960-01" value="1960-01-01")
+                                                    div.col-xs-6
+                                                        h4 Hasta
+                                                        div.input-group
+                                                            span.input-group-addon
+                                                                i.glyphicon.glyphicon-calendar
+                                                            input.form-control(type="Date" name="hasta" min="1960-01" value="2020-01-01")
+                                                br
+                                                div.row
+                                                    div.col-xs-6
+                                                        input(type='text' name='alumno' placeholder='Alumno' class='form-control')
+                                                br
+                                                div.row
+                                                    div.col-xs-6
+                                                        input(type='text' name='titulo' placeholder='Titulo' class='form-control')
+                                                br
+                                                div.row
+                                                    div.col-xs-6
+                                                        input(type='text' name='director' placeholder='Director' class='form-control')
+                                                br
+                                                div.row
+                                                    div.col-xs-6
+                                                        input(type='text' name='sinodal' placeholder='Sinodal' class='form-control')
+    
+                                        div.modal-footer
+                                            div.pull-left
+                                                button.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
+                                            div.pull-right
+                                                button.btn.btn-primary(type="submit" class='btn btn-default')
+                                                    i.fa.fa-spinner.fa-pulse.fa-lg.fa-fw(ng-show='isProcess')
+                                                    span(ng-show='!isProcess') Buscar
+                                                
+                div#content
+                    -if(items)
+                        -for item in items
                         
-                
-                    
-               
-                                       
-                                       
-                                        
-                                                           
+                            p
+                                div.thumbnail
+                                    table#local.table.table-striped.table-bordered        
+                                    
+                                        thead
+                                            td(colspan="2") 
+                                                a #{item.titulo}
+                                        tbody    
+                                            tr
+                                                td 
+                                                    b Alumno:
+                                                td
+                                                    ul #{item.ALUMNO} 
+                                            tr
+                                                td 
+                                                    b Folio:
+                                                td 
+                                                    ul #{item.FOLIO} 
+                                            tr
+                                                td
+                                                    b Lugar:
+                                                td 
+                                                    ul #{item.LUGAR}
+                                            tr
+                                                td
+                                                    b Fecha de Toma de Grado:
+                                                td 
+                                                    ul #{item["FECHA DE TOMA DE GRADO"]}
+                                            tr
+                                                td 
+                                                    b Directores:
+                                                td  
+                                                    ul(style="list-style-type:none")
+                                                        li #{item.DIRECTOR} 
+                                                        li #{item.DIRECTOR1}
+                                                        li #{item.DIRECTOR2} 
+                                                        li #{item.DIRECTOR3}
+                                                        li #{item.DIRECTOR4}                                          
+                                            tr
+                                                td
+                                                    b Sinodales:
+                                                td 
+                                                    ul(style='list-style-type:none')
+                                                        li #{item.SINODAL}
+                                                        li #{item.SINODAL1}
+                                                        li #{item.SINODAL2}
+                                                        li #{item.SINODAL3}
+                                                        li #{item.SINODAL4}
+                                
+                        
+                   
+                                                
+                                                                
                                    
                                             
                            

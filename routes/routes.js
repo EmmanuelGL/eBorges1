@@ -40,8 +40,5 @@ router.get('/tablas/actas', AuthMiddleware.isLogged, controllers.DataTable.getAc
 router.post('/tablas/actas', AuthMiddleware.isLogged, controllers.DataTable.postActas);
 router.get('/tablas/tesis', AuthMiddleware.isLogged, controllers.DataTable.getTesis);
 router.post('/tablas/tesis', AuthMiddleware.isLogged, controllers.DataTable.postTesis);
-
-
-
 module.exports = router;
 

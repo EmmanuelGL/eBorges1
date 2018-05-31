@@ -58,6 +58,9 @@ module.exports = {
 				
 				db.query(`select * from `+table,function(err,rows1,fields){
 					db.query(`DESCRIBE `+table,function(err,rows,fields){
+						if(err) throw err;
+
+						db.end();
 						title.shift();					
 						encabezados.shift();
 						tabla.shift();
@@ -115,6 +118,9 @@ module.exports = {
 						 }*/
 						/*rows = JSON.stringify(rows);
 						rows1 = JSON.stringify(rows1);*/
+						if(err) throw err;
+
+						db.end();
 						titleTesis.shift();					
 						encabezadosTesis.shift();
 						tablaTesis.shift();

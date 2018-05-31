@@ -4,7 +4,7 @@ extends ../templates/default
 block content
    script(type='text/javascript', src='/javascripts/graficas.js')
   
-  
+   script(type='text/javascript', src='https://code.jquery.com/jquery-1.12.4.min.js')
    script(type='text/javascript', src='/javascripts/muestra.js')        
 
    div.ingreso(style='margin-top:50px', ng-app='myApp')
@@ -34,7 +34,7 @@ block content
                                       span.input-group-addon
                                         i.glyphicon.glyphicon-calendar
                                       input#msg.form-control(type="month" name="mes" min="1960-01" placeholder='Introdusca un año')
-                -if(title!='DeptoGrados' && title !='EspecialidadDeptos')    
+                -if(title!='Alumnos Graduados por Departamento y Grado' && title !='Alumnos Graduados por Especialidad y Departamento')    
                     div.nav-tabs-custom(ng-controller='myCtrl')
                         ul.nav.nav-tabs.pull-right
                             li
@@ -45,7 +45,7 @@ block content
                                 a.barra(href='javascript:;', data-target='#bar', data-toggle='tab')
                                     i.fa.fa-bar-chart
                                     |  BARRAS
-                -if(title =='DeptoGrados' || title =='EspecialidadDeptos')
+                -if(title =='Alumnos Graduados por Departamento y Grado' || title =='Alumnos Graduados por Especialidad y Departamento')
                     div.nav-tabs-custom(ng-controller='myCtrl')
                         ul.nav.nav-tabs.pull-right
                             li.active
@@ -53,8 +53,10 @@ block content
                                     i.fa.fa-bar-chart
                                     |  BARRAS
                 
+                
+            
                 -if(items1)
-                    h1 Gráfica #{title}
+                    h2(style='text-align:center;') #{title}
                         
                         
                     div#graficaA.graficaA
@@ -74,6 +76,7 @@ block content
                                         tr
                                             -for val,key in item1
                                                 td.text-center #{val}
+            
 
                 
                 
