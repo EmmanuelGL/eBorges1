@@ -16,20 +16,20 @@ block content
                     div.col-md-3
                         div.well.well-sm
                             form.form-horizontal(action='/estadisticas/actas', method='post')
-                                a.text-center Estadística
+                                a.text-center.text-all Estadística
                                 div
-                                    select.form-control(name='Busqueda',onChange="this.form.submit()")
+                                    select.form-control.text-all(name='Busqueda',onChange="this.form.submit()")
                                         option='Elige una opción'
                                         option='Departamento'  
                                         option='Especialidad'
                                         option='Grado'
-                                        option='Genero'
-                                        option='DeptoGrados'
-                                        option='EspecialidadDeptos'
+                                        option='Género'
+                                        option='Departamento y Grados'
+                                        option='Especialidad y Departamentos'
                     div.col-md-4(style='float: right;')
                         div.well.well-sm
                             form.form-horizontal(action='/estadisticas/actas', method='post')
-                                a.text-center Periodo
+                                a.text-center.text-all Período
                                 div.input-group
                                       span.input-group-addon
                                         i.glyphicon.glyphicon-calendar
@@ -56,7 +56,7 @@ block content
                 
             
                 -if(items1)
-                    h2(style='text-align:center;') #{title}
+                    h2.text-all(style='text-align:center;') #{title}
                         
                         
                     div#graficaA.graficaA

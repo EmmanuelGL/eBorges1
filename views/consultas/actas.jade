@@ -18,28 +18,28 @@ block content
           div.jumbotron(style='background: white')
             div.container
                 div.row
-                    div.col-md-3
-                        div.well.well-sm
-                            form.form-horizontal(action='/estadisticas/actas', method='post')
-                                a.text-center Estadística
-                                div
-                                    select.form-control()
-                                        option='Elige una opción'
-                                        option='Departamento'  
-                                        option='Especialidad'
-                                        option='Grado'
-                                        option='Genero'
-                                        option='DeptoGrados'
-                                        option='EspecialidadDeptos'
+                    //- div.col-md-3
+                    //-     div.well.well-sm
+                    //-         form.form-horizontal(action='/estadisticas/actas', method='post')
+                    //-             a.text-center Estadística
+                    //-             div
+                    //-                 select.form-control()
+                    //-                     option='Elige una opción'
+                    //-                     option='Departamento'  
+                    //-                     option='Especialidad'
+                    //-                     option='Grado'
+                    //-                     option='Genero'
+                    //-                     option='Departamento y Grados'
+                    //-                     option='Especialidad y Departamentos'
                                          
                     div.container.col-md-7(style='padding-top: 15px;')
                         div.pull-right
-                            button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal') CONSULTA AVANZADA
+                            button.btn.btn-info.btn-lg.text-all(type='button', data-toggle='modal', data-target='#myModal') CONSULTA AVANZADA
                         // Modal
                         div#myModal.modal.fade(role='dialog')
                             form(action='/consultas/actas' method='post' autocomplete='off')
                                 div.modal-dialog
-                                    div.modal-content
+                                    div.modal-content.text-all
                                         div.modal-header
                                             button.close(type='button', data-dismiss='modal') ×
                                             h4.modal-title Búsqueda avanzada de actas
@@ -88,7 +88,7 @@ block content
                                                     i.fa.fa-spinner.fa-pulse.fa-lg.fa-fw(ng-show='isProcess')
                                                     span(ng-show='!isProcess') Buscar
                                                 
-                div#content
+                div#content.text-all
                     -if(items)
                         -for item in items
                         

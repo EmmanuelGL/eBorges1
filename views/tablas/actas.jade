@@ -7,7 +7,7 @@ block content
       div.panel
         div.box-body(style='min-height: 700px; ')
           div.jumbotron(style='background: white')
-            div.container
+            div.container.text-all
                 div.row
                     div.col-md-3
                         div.well.well-sm
@@ -26,8 +26,8 @@ block content
                 -if(!items)
                     div.alert.alert-info
                         strong(style='text-align:center;')  Atención!    :
-                            a.text-select Selecciona una Vista....                  
-                h1.text-title(style='text-align:center;') #{title}                  
+                            a Selecciona una Vista....                  
+                h1(style='text-align:center;') #{title}                  
                 div(class='table-responsive' )    
                     table#local.table.table-striped.table-bordered
                         thead(bgcolor="#34495E")

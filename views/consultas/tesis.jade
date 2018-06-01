@@ -22,34 +22,34 @@ block content
           div.jumbotron(style='background: white')
             div.container
                 div.row
-                    div.col-md-3
-                        div.well.well-sm
-                            form.form-horizontal(action='/tablas/tesis', method='post')
-                                a.text-cente Ordenar
-                                div
-                                    select.form-control(name='Busqueda')
-                                        option='Elige una opción'
-                                        option='Alunmo'  
-                                        option='Titulo'
-                                        option='Clasificación'
-                                        option='Especialidad'
-                                        option='Departamento'
-                                        option='Grado'
-                                        option='Fecha de Publicación'
-                                        option='Directores'
-                                        option='Sinodales'
-                    div.container.col-md-7(style='padding-top: 15px;')
+                    //- div.col-md-3
+                    //-     div.well.well-sm
+                    //-         form.form-horizontal(action='/tablas/tesis', method='post')
+                    //-             a.text-cente Ordenar
+                    //-             div
+                    //-                 select.form-control(name='Busqueda')
+                    //-                     option='Elige una opción'
+                    //-                     option='Alunmo'  
+                    //-                     option='Titulo'
+                    //-                     option='Clasificación'
+                    //-                     option='Especialidad'
+                    //-                     option='Departamento'
+                    //-                     option='Grado'
+                    //-                     option='Fecha de Publicación'
+                    //-                     option='Directores'
+                    //-                     option='Sinodales'
+                    div.container.col-md-7(style='padding-top: 5px;')
                         div.pull-right
-                            button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal') CONSULTA AVANZADA
+                            button.btn.btn-info.btn-lg.text-all(type='button', data-toggle='modal', data-target='#myModal') CONSULTA AVANZADA
                         // Modal
                         div#myModal.modal.fade(role='dialog')
                             form(action='/consultas/tesis' method='post' autocomplete='off')
                                 div.modal-dialog
-                                    div.modal-content
+                                    div.modal-content.text-all
                                         div.modal-header
                                             button.close(type='button', data-dismiss='modal') ×
-                                            h4.modal-title Búsqueda avanzada de tesis
-                                        div.modal-body
+                                            h4.modal-title.text-all Búsqueda avanzada de tesis
+                                        div.modal-body.text-all
                                             
                                                 div.row
                                                     div.col-xs-6
@@ -99,7 +99,7 @@ block content
                                                     span(ng-show='!isProcess') Buscar
                                             
                                             
-                div#content
+                div#content.text-all
                     -if(items)
                         -for item in items
                             p

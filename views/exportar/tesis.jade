@@ -12,25 +12,25 @@ block content
                     div.col-md-3
                         div.well.well-sm
                             form.form-horizontal(action='/exportar/tesis', method='post')
-                                a.text-center Vista
+                                a.text-center.text-all Vista
                                 div
-                                    select.form-control(name='Busqueda',onChange="this.form.submit()")
+                                    select.form-control.text-all(name='Busqueda',onChange="this.form.submit()")
                                         option='Elige una opción'
                                         option='Departamento'  
                                         option='Especialidad'
                                         option='Grado'
                                         option='Genero'
-                                        option='DeptoGrados'
-                                        option='EspecialidadDeptos'
+                                        option='Departamento y Grados'
+                                        option='Especialidad y Departamentos'
                                          
                                    
                 -if(!items)
                     div.alert.alert-info
-                        strong(style='text-align:center;')  Atención!    :
-                            a.text-select Selecciona una Vista....
+                        strong.text-all(style='text-align:center;')  Atención!    :
+                            a.text-all Selecciona una Vista....
                 -if(items)
-                    h1.text-title(style='text-align:center;') Exportar #{title}                   
-                    div(class='table-responsive' )    
+                    h1.text-all(style='text-align:center;') Exportar #{title}                   
+                    div.text-all(class='table-responsive' )    
                         table#example.table.table-striped.table-bordered 
                             thead(bgcolor="#34495E")
                                 tr
