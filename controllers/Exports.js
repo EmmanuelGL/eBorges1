@@ -47,9 +47,9 @@ module.exports = {
 				table='v_egradoa';
 			if(seleccion=='Genero')
 				table='v_egeneroa';
-			if(seleccion=='DeptoGrados')
+			if(seleccion=='Departamento y Grados')
 				table='v_deptogradoa';
-			if(seleccion=='EspecialidadDeptos')
+			if(seleccion=='Especialidad y Departamentos')
 				table='v_especialidaddeptoa';
 			
 			var config = require('.././database/config');
@@ -98,9 +98,9 @@ module.exports = {
 				table='v_egrado';
 			if(seleccion=='Genero')
 				table='v_egenero';
-			if(seleccion=='DeptoGrados')
+			if(seleccion=='Departamento y Grados')
 				table='v_deptogrado';
-			if(seleccion=='EspecialidadDeptos')
+			if(seleccion=='Especialidad y Departamentos')
 				table='v_especialidaddepto';
 			
 			var config = require('.././database/config');

@@ -65,12 +65,12 @@ module.exports = {
 			grafica = 'v_egeneroa';
 			titulos = 'Genero de Alumnos Graduados'
 		}
-		if (seleccion == 'DeptoGrados') {
+		if (seleccion == 'Departamento y Grados') {
 			head = "departamento,total,grado";
 			grafica = 'v_deptogradoa';
 			titulos = 'Alumnos Graduados por Departamento y Grado'
 		}
-		if (seleccion == 'EspecialidadDeptos') {
+		if (seleccion == 'Especialidad y Departamentos') {
 			head = "especialidad,departamento,total";
 			grafica = 'v_especialidaddeptoa';
 			titulos = 'Alumnos Graduados por Especialidad y Departamento'
@@ -211,12 +211,12 @@ module.exports = {
 			grafica = 'v_egenero';
 			titulos = 'Genero de Alumnos Graduados'
 		}
-		if (seleccion == 'DeptoGrados') {
+		if (seleccion == 'Departamento y Grados') {
 			head = "grado,departamento,total";
 			grafica = 'v_deptogrado';
 			titulos = 'Alumnos Graduados por Departamento y Grado'
 		}
-		if (seleccion == 'EspecialidadDeptos') {
+		if (seleccion == 'Especialidad y Departamentos') {
 			head = "especialidad,departamento,total";
 			grafica = 'v_especialidaddepto';
 			titulos = 'Alumnos Graduados por Especialidad y Departamento'
